@@ -5,10 +5,8 @@ module.exports = {
         node: true
     },
     'extends': [
-        'plugin:vue/essential',
-        'plugin:prettier/recommended',
+        'plugin:vue/essential'
     ],
-    "plugins": ["prettier"],
     parserOptions: {
         parser: '@babel/eslint-parser'
     },
@@ -17,7 +15,7 @@ module.exports = {
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         //代码块前面需要加空格
         "space-before-blocks": [
-            4,
+            2,
             "always"
         ],
         // 强制选择加分号
