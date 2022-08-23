@@ -53,6 +53,9 @@
   align-items: center;
   margin-top: 15px;
 }
+.home .main-rig .list-one .list-item .list-ul li :hover.p2 {
+  transform: translateX(20px);
+}
 .home .main-rig .list-one .list-item .list-ul li .p1 {
   border-radius: 50%;
   width: 25px;
@@ -61,7 +64,11 @@
   color: white;
   text-align: center;
   line-height: 25px;
+  font-size: 14px;
+  margin-right: 5px;
 }
 .home .main-rig .list-one .list-item .list-ul li .p2 {
   font-size: 15px;
+  transition: 1s;
+  font-size: 14px;
 }

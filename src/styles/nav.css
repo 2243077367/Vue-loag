@@ -3,6 +3,9 @@
   background: white;
   opacity: 1;
 }
+.flx{
+    display:flex;
+}
 nav {
   width: 1100px;
   height: 95px;

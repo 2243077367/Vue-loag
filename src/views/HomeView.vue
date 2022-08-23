@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <div class="head-tit">现在位置 > 首页</div>
+        <div class="head-tit">现在位置 >首页</div>
         <div class="main-lef fl">
             <!-- 轮播图 -->
             <div class="swiper">
@@ -28,17 +28,14 @@
                     <ul class="list-ul">
                         <li  
                         v-for="(list,index) in items"
-                :key="list.index">
+                        :key="list.index">
                         <p class="p1">{{index+1}}</p>
                         <p class="p2">{{list.titie}}</p>
                         </li>
                     </ul>
-                    
-                    
                 </div>
             </div>
         </div>
-        <HelloWorld/>
     </div>
 </template>
 
@@ -46,15 +43,10 @@
 @import '@/styles/home.css';
 </style>
 <script>
-import HelloWorld from '@/components/HelloWorld.vue';
 // 引入swiper
 import Swiper from 'swiper';
 import 'swiper/css';
 export default {
-    name: 'HomeView',
-    components: {
-        HelloWorld,
-    },
     data() {
      return {
        swiperList: [
