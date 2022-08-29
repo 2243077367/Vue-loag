@@ -3,20 +3,18 @@
         <div class="head-tit">现在位置 >首页</div>
         <div class="main-lef fl">
             <!-- 轮播图 -->
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div
-                        class="swiper-slide"
-                        v-for="d in swiperList"
-                        :key="d.image"
-                    >
-                        <a :href="d.link">
-                            <img :src="d.image" alt="">
-                            <p class="swiper-p">{{d.tit}}</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <el-carousel :interval="2000" type="card" class="swiper" >
+                <el-carousel-item 
+                class="swiper-slide"
+                v-for="d in swiperList"
+                :key="d.image"
+                >
+                    <a :href="d.link">
+                        <img :src="d.image" alt="">
+                        <p class="swiper-p">{{d.tit}}</p>
+                    </a>
+                </el-carousel-item>
+            </el-carousel>
         </div>
         <div class="main-rig fr">
             <div class="list-one">
@@ -35,23 +33,35 @@
                     </ul>
                 </div>
             </div>
+            <div class="list-two">
+                <div class="one-head">
+                    <img src="@/assets/分类.png" alt="">
+                    <p>热门标签</p>
+                </div>
+                <div class="sm-box">
+
+                </div>
+            </div>
         </div>
+        <list-context/>
     </div>
 </template>
 
 <style scoped>
-@import '@/styles/home.css';
+@import '@/styles/home.css';    
 </style>
 <script>
+// 引入 首页主题下的列表项
+import ListContext from "@/components/ListContext.vue";
 // 引入swiper
-import Swiper from 'swiper';
-import 'swiper/css';
 export default {
+  components: { ListContext },
     data() {
      return {
        swiperList: [
             {"image":require('../assets/10002.jpg'),"tit":"很高兴认识你"},
             {"image":require('../assets/10003.png'),"tit":"目前的你又什么和爱好"},
+            {"image":require('../assets/10004.png'),"tit":"战争一场行为艺术"},
        ], // 轮播图
        items:[
         {"titie":"写在世界读书日:与书为伴与书同行"},
@@ -61,14 +71,7 @@ export default {
         {"titie":"阅读、思考、写作"},
         {"titie":"很高兴认识你"},
        ],
-       swiper: null // 存放swiper实例
      };
-  },
-   mounted() {
-    this.swiper = new Swiper('.swiper');
-   },
-   beforeDestroy() {
-    this.swiper.destroy();
   }
 };
 </script>
