@@ -52,7 +52,7 @@
   margin-top: 8px;
 }
 .home .main-rig .list-one .list-item .list-ul li :hover.p2 {
-  transform: translateX(20px);
+  transform: translateX(15px);
   color: #3690d8;
 }
 .home .main-rig .list-one .list-item .list-ul li .p1 {
@@ -67,9 +67,9 @@
   margin-right: 5px;
 }
 .home .main-rig .list-one .list-item .list-ul li .p2 {
-  font-size: 15px;
   transition: 0.5s;
   font-size: 14px;
+  cursor: pointer;
 }
 .home .main-rig .one-head {
   height: 40px;
@@ -89,5 +89,39 @@
   margin-top: 20px;
 }
 .home .main-rig .list-two .sm-box {
-  height: 325px;
+  height: 260px;
+}
+.home .main-rig .list-two .sm-box .cot-box {
+  width: 275px;
+  margin: 10px;
+  height: 245px;
+  background-color: red;
+}
+.home .main-rig .list-two .sm-box .cot-box span {
+  padding: 5px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  background-color: aqua;
+  border-radius: 3px;
+  animation: dh 8s linear infinite;
+  display: inline-block;
+}
+@keyframes dh {
+  0% {
+    transform: translateY(150px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(100px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(50px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
 }
