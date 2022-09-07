@@ -152,7 +152,160 @@ components :组件名
 
 父传子 父组件定义名，子组件props进行接受，可以指定类型
 
+子传给 子组件使用`$emit`+事件对父组件进行传值
 
+组件的v-modal定义：
 
+​    如果自定义属性叫value，派发自定义事件叫input，
 
+​    而且自定义事件要更新value，可以缩写组件双向绑定
 
+使用`$refs`获取组件实例，进而获取数据
+
+#### 插槽
+
+• 多个插槽，命名区分 slot(name="***")
+
+• 不带 name 的 slot 隐含命名为 default
+
+• 在 template 元素上使用 v-slot 指令指定内容
+
+• 插槽内容和父级模板有一样的作用域
+
+#### 生命周期
+
+四个阶段，八个函数，每个阶段前一个后一个函数
+
+创建实例this>挂载/渲染dom  更新导致刷新视图>销毁this移除相对性的dom
+
+beforeCreate（）{}创建前			created（）{} 创建好了
+
+beforeMount（）{}挂载前			mounted（）{}挂载好了
+
+beforeUpdate（）{}更新前		   updated（）{}更新好了
+
+beforeDestroy（）{}销毁前		  destroyed（）{}销毁后
+
+使用最频繁
+
+  created:掉接口,设置data，调用方法
+
+  mounted:操作dom，读取节点
+
+  beforeDestory: 停掉定时器，解绑自定义事件
+
+#### 动画
+
+node 内置安装 transition动画库
+
+<transition></transition>  标签
+
+v- 是类名的默认前缀 如果 transition 定义了 name，name 会替代 v
+
+v-enter、v-enter-active、v-enter-to 开始
+
+v-leave、v-leave-active、v-leave-to  离开
+
+#### VUE X
+
+State：定义了应用状态的数据结构，可以在这里设置默认的初始状态。
+
+Getter：允许组件从 Store 中获取数据，mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性。
+
+Mutation：是唯一更改 store 中状态的方法，且必须是同步函数。
+
+Action：用于提交 mutation，而不是直接变更状态，可以包含任意异步操作。
+
+Module：允许将单一的 Store 拆分为多个 store 且同时保存在单一的状态树中。
+
+#### 路由
+
+##### 路由跳转
+
+hash 模式，使用 URL hash 值  /#/home 
+
+history 模式，HTML5 History API	 /home 
+
+//$router : 是路由操作对象，只写对象 
+
+//$route : 路由信息对象，只读对象
+
+直白的来说query相当于get请求，页面跳转的时候，可以在地址栏看到请求参数，而params相当于post请求，参数不会再地址栏中显示
+
+1. <router-link to="/pt?age=9">
+
+2.  <button @click="go2">跳转到页面22222</button> 绑定事件 ，methods定义
+
+   go2(){
+
+   ​       this.$router.push('/pt?age=21');//直接写
+
+   ​       第一种传参
+
+   ​       this.$router.push({
+
+   ​        name:'pt',
+
+   ​        query:{
+
+   ​          age:100,
+
+   ​        }
+
+   ​      })
+
+   第二种传值
+
+   go1(){
+
+   ​      this.$router.push({
+
+   ​        name:'po',
+
+   ​        params:{
+
+   ​          age:20,
+
+   ​        }
+
+   ​      })
+
+   ​    }
+
+   }
+
+   ##### 路由嵌套
+
+   {
+
+     path: '/my',
+
+     component: () => import('./MyView.vue'),
+
+     redirect:'/my/tab-a', //页面重定向
+
+     //嵌套/子路由在父组件增加childred
+
+     children:[{
+
+      //不能写/要不然就是一级路由
+
+      path:'tab-a',
+
+      component:()=> import('./TabA.vue')
+
+     },
+
+   ##### 路由守卫
+
+   beforeEach((to,from,next)=>{})-------------全局前置守卫最常用来做路由鉴权
+
+   afterEach((to,from)=>{})------------------------全局后置钩子常用来做统一的页面
+
+   进入后逻辑，比如处理滚动等
+
+   #### 
+
+   
+
+   
