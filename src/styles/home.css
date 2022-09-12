@@ -107,6 +107,10 @@
   animation: dh 8s linear infinite;
   display: inline-block;
 }
+.home .main-rig .list-two .sm-box .cot-box span:hover {
+  animation: none;
+  z-index: 10;
+}
 @keyframes dh {
   0% {
     transform: translateY(150px);

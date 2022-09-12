@@ -61,8 +61,9 @@ import ListContext from "@/components/ListContext.vue";
 //引入mock
 import instate from "../http/api.js"
 
-// 引入swiper
+// 
 export default {
+    //引入组件
     components: { ListContext },
     data() {
         return {
